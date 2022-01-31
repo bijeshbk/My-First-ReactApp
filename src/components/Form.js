@@ -1,21 +1,22 @@
-import { useState } from "react";
+import { useState } from "react"
 
 function Form({ getData }) {
-  const [weight, setWeight] = useState("");
-  const [height, setHeight] = useState("");
-  const [alert, setAlert] = useState(false);
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const [weight, setWeight] = useState("")
+  const [height, setHeight] = useState("")
+  const [alert, setAlert] = useState(false)
+
+  const onSubmit = e => {
+    e.preventDefault()
     if (isNaN(weight) || isNaN(height)) {
-      console.log("Not a valid input");
-      setAlert(true);
+      console.log("Not a valid input")
+      setAlert(true)
     } else {
-      getData(weight, height);
-      setAlert(false);
-      setHeight("");
-      setWeight("");
+      getData(weight, height)
+      setAlert(false)
+      setHeight("")
+      setWeight("")
     }
-  };
+  }
   return (
     <div className="col-sm-4 shadow rounded px-5">
       <h1 className="text-center pt-3 text-secondary h2">BMI Calculator</h1>
@@ -27,7 +28,7 @@ function Form({ getData }) {
               <input
                 type="text"
                 value={weight}
-                onChange={(e) => setWeight(e.target.value)}
+                onChange={e => setWeight(e.target.value)}
                 className="form-control"
                 required
               />
@@ -39,7 +40,7 @@ function Form({ getData }) {
               <input
                 type="text"
                 value={height}
-                onChange={(e) => setHeight(e.target.value)}
+                onChange={e => setHeight(e.target.value)}
                 className="form-control"
                 required
               />
@@ -54,7 +55,7 @@ function Form({ getData }) {
         </div>
       )}
     </div>
-  );
+  )
 }
 
-export default Form;
+export default Form
